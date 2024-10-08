@@ -28,19 +28,40 @@ void print_stack(){
     
 }
 
+void sort(){
+    for (int i = 0; i < top; i++)
+    {
+        for (int j = 0; j < top-i; j++)
+        {
+            if (mystack[j] > mystack[j+1]){
+                int tmp = mystack[j];
+                mystack[j] = mystack[j+1];
+                mystack[j+1] = tmp;
+            }
+        }
+        
+    }
+    
+}
+
 int main (){
 
-    push(1);
-    push(2);
-    push(3);
+    push(1000);
+    push(200);
+    push(3000);
     push(23);
-    push(44);
+    push(2000);
+    push(0);
+    push(-22);
 
     print_stack();
-    int poped_element = pop();
-    print_stack();
+    sort();
 
-    printf("removed element : %i\n", poped_element);
+    print_stack();
+    // int poped_element = pop();
+    // print_stack();
+
+    // printf("removed element : %i\n", poped_element);
 
     return 1;
 }
