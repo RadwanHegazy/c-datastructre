@@ -35,6 +35,53 @@ void print_queue (){
     
 }
 
+
+int get_index (int num){
+    for (int i = 0; i < INDEX; i++)
+    {
+        if(list[i] == num){
+            return i;
+        }
+    }
+    
+    return -1;
+    
+}
+
+
+int find_smallest(){
+    int small = list[0];
+    for (int i = 0; i < INDEX; i++)
+    {
+        if (list[i] < small){
+            small = list[i];
+        }
+    }
+
+    return small;
+}
+
+// int sorted_list[225];
+// int SORTED_INDEX = 0;
+
+void sort_queue (){
+    for (int i = 0; i < INDEX; i++)
+    {
+        for (int j = 0; j < INDEX-i-1; j++)
+        {
+
+            if(list[j] > list[j+1]){
+                int tmp = list[j];
+                list[j] = list[j+1];
+                list[j+1] = tmp;
+            }
+        }
+    }
+    
+    // return list;
+}
+
+
 void queue_size () {
     printf("Queue size is : %i\n", INDEX);
 }
@@ -42,18 +89,17 @@ void queue_size () {
 
 void main (){
 
-    enqueue(100);
-    enqueue(200);
-    enqueue(300);
-    enqueue(400);
+    enqueue(5);
+    enqueue(4);
+    enqueue(3);
+    enqueue(2);
 
+
+    
     print_queue();
-    queue_size();
-    int poped = dequeue();
-
-    printf("poped : %i\n", poped);
-    queue_size();
+    printf("____After Sorting__\n");
+    sort_queue();
     print_queue();
     
-
+    
 }
